@@ -1,4 +1,4 @@
-const https=require('http');
+
 
 const express=require('express')
 
@@ -11,11 +11,9 @@ app.use((req,res,next)=>{
 
 app.use((req,res,next)=>{
     console.log("In another middleware");
-    res.send('<h1>Hello from express js</h1>')    
+    res.send({ key1:' value' })    
 })
 
 
-const server=https.createServer(app)
-
-server.listen(4000);
+app.listen(4000);
 
