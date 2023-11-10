@@ -6,6 +6,9 @@ const app=express();
 
 const adminRoutes=require('./routes/admin.js')
 const shopRoutes=require('./routes/shop.js')
+const contactusRoutes=require('./routes/contactus.js')
+const successRoutes=require('./routes/success.js')
+const errorRoutes=require('./routes/error404.js')
 
 
 app.use(bodyparser.urlencoded({extended:false}))
@@ -14,10 +17,10 @@ app.use(express.static(path.join(__dirname,'public')))//for addimg style sheet s
 
 app.use('/admin',adminRoutes);
 app.use('/shop',shopRoutes);
+app.use('/contactus',contactusRoutes)
+app.use('/success',successRoutes)
+app.use(errorRoutes)
 
-app.use((req,res,next)=>{
-    res.status(404).sendFile(path.join(__dirname,'views','error-page.html'))
-})
 
 
 app.listen(4000);
