@@ -8,6 +8,7 @@ const sequelize=require('./util/database')
 
 const userRoutes=require('./routes/User')
 const serverRoutes=require('./routes/server');
+const expenseRoutes=require('./routes/Expense');
 
 const app=express();
 
@@ -17,6 +18,7 @@ app.use(cors())
 
 app.use('/user',userRoutes);
 app.use(serverRoutes);
+app.use('/expense',expenseRoutes);
 
 sequelize
    .sync() //it syncs our models to the database by creating the appropriate tables and relations if we have them
