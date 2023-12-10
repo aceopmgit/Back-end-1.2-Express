@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <title>Expense Tracker</title>
+</head>
+<body>
+    
+    <div class="container">
+        <h1 style="text-align:center ;color:rgb(20, 20, 20)" >Expense Tracker</h1>
+        <label for="eAmount">Choose Expense Amount</label>
+        <input type="Number" id="eAmount" name="eAmount">
+        <label for="description">Choose Description</label>
+        <input type="Text" id="desc" name="description">
+        <lable for="category">Choose a Category</lable>
+        <select id="category" name="category">
+            <option value="Electricity">Electricity</option>            
+            <option value="Food">Food</option>
+            <option value="Fuel">Fuel</option>
+            <option value="Movie">Movie</option>
+        </select>
+        <button id="btn">Add Expense</button>
+        <ul id="items" class="list-group"></ul>
+        
+        
+
+    </div>
+    
+
+    <script src="005ExpenseTrackerDOM.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"></script>
+
+
+    
+</body>
+</html>
