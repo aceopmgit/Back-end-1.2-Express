@@ -45,7 +45,7 @@ function submitUser(e){
 
 function showDetails(obj){
 
-    //creating span element for email;
+    //creating span element for id;
     const sid=document.createElement('span');
     sid.className='id';
     sid.style.display='none';

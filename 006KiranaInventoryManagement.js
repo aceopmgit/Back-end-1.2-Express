@@ -45,7 +45,7 @@ function addToInventory(e){
 
 function showDetails(obj){
 
-    //creating span element for email;
+    //creating span element for id;
     const sid=document.createElement('span');
     sid.className='id';
     sid.style.display='none';
@@ -66,19 +66,16 @@ function showDetails(obj){
     buy3.className='btn btn-dark float-right buy3';
     buy3.appendChild(document.createTextNode('Buy 3'));
 
-
-
     
     //creating li element
     const li=document.createElement('li');
     li.className='list-group-item'
     //li.appendChild(document.createTextNode());
-    li.append(obj.iName," ",obj.iDescription," ",obj.iPrice," ",obj.iQuantity,sid,buy3,buy2,buy1);
+    li.append(obj.iName," ",obj.iDescription," ",`Rs. ${obj.iPrice}`," ",obj.iQuantity,sid,buy3,buy2,buy1);
 
     //Adding li to ul tag
     items.appendChild(li); 
 }
-
 
 window.addEventListener("DOMContentLoaded",async()=>{
  
@@ -97,7 +94,6 @@ window.addEventListener("DOMContentLoaded",async()=>{
 })
 
 
-
 function updateInventory(e){
 
 
@@ -109,11 +105,11 @@ function updateInventory(e){
         .then((res)=>{
             const oldQuantity=res.data.InventoryItem.iQuantity;
             let newQuantity;
-            if(oldQuantity===0){
-                newQuantity=0
+            if(oldQuantity>=1){
+                newQuantity=oldQuantity-1;
             }
             else{
-                newQuantity=oldQuantity-1;
+                alert('Not Enough Quantity');
             }
              
             
@@ -138,20 +134,11 @@ function updateInventory(e){
             const oldQuantity=res.data.InventoryItem.iQuantity;
             let newQuantity;
             if(oldQuantity>=2){
-                                
-            if(oldQuantity===2){
-                newQuantity=0
+                newQuantity=oldQuantity-2
             }
             else{
-                newQuantity=oldQuantity-2;
-            }
-
-            }
-            else{
-                //alert('not enough quantity !!')
-            }
-
-             
+                alert('Not Enough Quantity');
+            }           
             
 
             const quantity={
@@ -172,18 +159,13 @@ function updateInventory(e){
         .then((res)=>{
             const oldQuantity=res.data.InventoryItem.iQuantity;
             let newQuantity;
-            if(oldQuantity>=3){
-                                
-            if(oldQuantity===3){
-                newQuantity=0
-            }
-            else{
-                newQuantity=oldQuantity-3;
-            }
+            if(oldQuantity>=3){                                
+           
+                newQuantity=oldQuantity-3;           
 
             }
             else{
-                //alert('not enough quantity !!')
+                alert('Not enough quantity !!')
             }
 
              
@@ -198,13 +180,8 @@ function updateInventory(e){
         })
         .catch((err)=>{console.log(err)});
     }
-   // axios.delete(`http://localhost:3000/user/delete-user/${key}`).catch((err)=>{console.log(err)})
-    
-    
-    
-    
 
-
+    
     
 }
 
