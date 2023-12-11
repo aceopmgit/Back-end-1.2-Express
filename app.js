@@ -1,4 +1,4 @@
-const path=require('path')//kya kam hai iska ?
+const path=require('path')
 
 const express=require('express');
 const bodyparser=require('body-parser');
@@ -9,6 +9,7 @@ const sequelize=require('./util/database')
 const userRoutes=require('./routes/User')
 const serverRoutes=require('./routes/server');
 const expenseRoutes=require('./routes/Expense');
+const inventoryRoutes=require('./routes/Inventory')
 
 const app=express();
 
@@ -19,6 +20,7 @@ app.use(cors())
 app.use('/user',userRoutes);
 app.use(serverRoutes);
 app.use('/expense',expenseRoutes);
+app.use('/inventory',inventoryRoutes)
 
 sequelize
    .sync() //it syncs our models to the database by creating the appropriate tables and relations if we have them
