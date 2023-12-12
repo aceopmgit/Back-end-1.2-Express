@@ -1,29 +1,33 @@
 const  Sequelize = require('sequelize');
 
 const sequelize=require('../util/database');
-const Inventory=sequelize.define('Inventory',{
+const Slot=sequelize.define('Slot',{
     id:{
         type:Sequelize.INTEGER,
         autoIncrement:true,
         allowNull:false,
         primaryKey:true
     },
-    iName:{
+    Name:{
         type:Sequelize.STRING,
         allowNull:false
     },
-    iDescription:{
+    Email:{
+        type:Sequelize.STRING,
+        allowNull:false,
+        unique:true
+    },
+    Slot:{
+        type:Sequelize.INTEGER
+    },
+    Button:{
+        type:Sequelize.STRING,        
+        allowNull:false
+    },
+    Time:{
         type:Sequelize.STRING,
         allowNull:false
-    },
-    iPrice:{
-        type:Sequelize.INTEGER,
-        allowNull:false
-    },
-    iQuantity:{
-        type:Sequelize.INTEGER,
-        
     }
 })
 
-module.exports=Inventory;
+module.exports=Slot;
