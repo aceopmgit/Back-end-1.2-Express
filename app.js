@@ -11,6 +11,8 @@ const serverRoutes=require('./routes/server');
 const expenseRoutes=require('./routes/Expense');
 const inventoryRoutes=require('./routes/Inventory')
 const bookSlotRoutes=require('./routes/Book-slot')
+const blogRoutes=require('./routes/Blog')
+const BlogCommentRoutes=require('./routes/BlogComment')
 
 const app=express();
 
@@ -23,9 +25,11 @@ app.use(serverRoutes);
 app.use('/expense',expenseRoutes);
 app.use('/inventory',inventoryRoutes)
 app.use('/bookSlots',bookSlotRoutes);
+app.use('/blogs',blogRoutes);
+app.use('/blogs/comment',BlogCommentRoutes);
 
 sequelize
-   .sync() //it syncs our models to the database by creating the appropriate tables and relations if we have them
+   .sync({force:true}) //it syncs our models to the database by creating the appropriate tables and relations if we have them
    .then((result)=>{
     app.listen(3000);
    })
